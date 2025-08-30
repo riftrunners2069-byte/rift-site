@@ -1,0 +1,206 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-big: 'Bytesized', system-ui, sans-serif;
+  --font-body: 'Jersey 10', ui-monospace, monospace;
+}
+
+/* Custom pixel cursor */
+* {
+  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><rect x="0" y="0" width="2" height="2" fill="%231cfe98"/><rect x="2" y="2" width="2" height="2" fill="%231cfe98"/><rect x="4" y="4" width="2" height="2" fill="%231cfe98"/><rect x="6" y="6" width="2" height="2" fill="%231cfe98"/><rect x="8" y="8" width="2" height="2" fill="%231cfe98"/><rect x="6" y="8" width="2" height="2" fill="%231cfe98"/><rect x="4" y="8" width="2" height="2" fill="%231cfe98"/><rect x="2" y="8" width="2" height="2" fill="%231cfe98"/><rect x="0" y="8" width="2" height="2" fill="%231cfe98"/><rect x="0" y="10" width="2" height="2" fill="%231cfe98"/><rect x="2" y="10" width="2" height="2" fill="%231cfe98"/><rect x="4" y="10" width="2" height="2" fill="%231cfe98"/><rect x="0" y="12" width="2" height="2" fill="%231cfe98"/><rect x="2" y="12" width="2" height="2" fill="%231cfe98"/><rect x="0" y="14" width="2" height="2" fill="%231cfe98"/></svg>') 0 0, auto;
+}
+
+button, a, [role="button"] {
+  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><rect x="2" y="0" width="2" height="2" fill="%231cfe98"/><rect x="4" y="0" width="2" height="2" fill="%231cfe98"/><rect x="6" y="0" width="2" height="2" fill="%231cfe98"/><rect x="8" y="0" width="2" height="2" fill="%231cfe98"/><rect x="0" y="2" width="2" height="2" fill="%231cfe98"/><rect x="10" y="2" width="2" height="2" fill="%231cfe98"/><rect x="0" y="4" width="2" height="2" fill="%231cfe98"/><rect x="10" y="4" width="2" height="2" fill="%231cfe98"/><rect x="0" y="6" width="2" height="2" fill="%231cfe98"/><rect x="10" y="6" width="2" height="2" fill="%231cfe98"/><rect x="0" y="8" width="2" height="2" fill="%231cfe98"/><rect x="10" y="8" width="2" height="2" fill="%231cfe98"/><rect x="2" y="10" width="2" height="2" fill="%231cfe98"/><rect x="4" y="10" width="2" height="2" fill="%231cfe98"/><rect x="6" y="10" width="2" height="2" fill="%231cfe98"/><rect x="8" y="10" width="2" height="2" fill="%231cfe98"/></svg>') 8 5, pointer;
+}
+
+/* Global styles */
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: #040a07;
+  color: #1cfe98;
+  overflow-x: hidden;
+  /* Mobile optimizations */
+  -webkit-tap-highlight-color: rgba(28, 254, 152, 0.3);
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Allow text selection for specific elements */
+.selectable {
+  -webkit-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
+  user-select: text;
+}
+
+/* Pixelated image rendering */
+.pixelated {
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
+  image-rendering: -webkit-optimize-contrast;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Hide scrollbars but keep functionality */
+::-webkit-scrollbar {
+  width: 0px;
+  background: transparent;
+}
+
+/* Selection styles */
+::selection {
+  background: rgba(28, 254, 152, 0.3);
+  color: #bfffe6;
+}
+
+::-moz-selection {
+  background: rgba(28, 254, 152, 0.3);
+  color: #bfffe6;
+}
+
+/* Focus styles for accessibility */
+button:focus-visible,
+a:focus-visible {
+  outline: 2px solid #1cfe98;
+  outline-offset: 2px;
+}
+
+/* Custom animations */
+.rift-anim {
+  animation: glowPulse 14s ease-in-out infinite, jitter 30s steps(2,end) infinite;
+}
+
+.rift-glitch {
+  animation: glitch1 2s ease-in-out 0s 1, glitch2 1.5s ease-in-out 12s 1, glitch3 3s ease-in-out 25s 1, glitch4 1s ease-in-out 40s 1, glitch5 2.5s ease-in-out 55s 1;
+  animation-iteration-count: infinite;
+}
+
+@keyframes glowPulse {
+  0%, 100% {
+    filter: drop-shadow(0 0 8px rgba(28, 254, 152, 0.6)) drop-shadow(0 0 24px rgba(28, 254, 152, 0.35));
+  }
+  50% {
+    filter: drop-shadow(0 0 14px rgba(28, 254, 152, 0.9)) drop-shadow(0 0 40px rgba(28, 254, 152, 0.55));
+  }
+}
+
+@keyframes jitter {
+  0% { transform: translate(0,0) scale(1); }
+  25% { transform: translate(0.5px,-0.5px) scale(1.002); }
+  50% { transform: translate(-0.6px,0.4px) scale(0.998); }
+  75% { transform: translate(0.4px,0.6px) scale(1.001); }
+  100% { transform: translate(0,0) scale(1); }
+}
+
+.cursor {
+  animation: blink 1.2s steps(2, start) infinite;
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
+/* Glitch effects - random intervals */
+@keyframes glitch1 {
+  0% { transform: translate(0px, 0px) skew(0deg); }
+  5% { transform: translate(-1px, -1px) skew(-0.3deg); filter: hue-rotate(45deg); }
+  10% { transform: translate(0px, 0px) skew(0deg); filter: hue-rotate(0deg); }
+  15% { transform: translate(1px, 0px) skew(0.2deg); filter: hue-rotate(90deg); }
+  20% { transform: translate(0px, 0px) skew(0deg); filter: hue-rotate(0deg); }
+  100% { transform: translate(0px, 0px) skew(0deg); filter: hue-rotate(0deg); }
+}
+
+@keyframes glitch2 {
+  0% { transform: translate(0px, 0px) scale(1); opacity: 1; }
+  8% { transform: translate(-1px, 1px) scale(1.01); opacity: 0.9; }
+  12% { transform: translate(0px, 0px) scale(1); opacity: 1; }
+  18% { transform: translate(1px, -1px) scale(0.99); opacity: 0.95; }
+  25% { transform: translate(0px, 0px) scale(1); opacity: 1; }
+  100% { transform: translate(0px, 0px) scale(1); opacity: 1; }
+}
+
+@keyframes glitch3 {
+  0% { clip-path: inset(0 0 0 0); }
+  3% { clip-path: inset(10% 0 80% 0); }
+  6% { clip-path: inset(0 0 0 0); }
+  10% { clip-path: inset(60% 0 20% 0); }
+  13% { clip-path: inset(0 0 0 0); }
+  100% { clip-path: inset(0 0 0 0); }
+}
+
+@keyframes glitch4 {
+  0% { transform: translate(0px, 0px); filter: contrast(100%); }
+  10% { transform: translate(1px, -1px); filter: contrast(130%); }
+  20% { transform: translate(0px, 0px); filter: contrast(100%); }
+  30% { transform: translate(-1px, 1px); filter: contrast(90%); }
+  40% { transform: translate(0px, 0px); filter: contrast(100%); }
+  100% { transform: translate(0px, 0px); filter: contrast(100%); }
+}
+
+@keyframes glitch5 {
+  0% { text-shadow: 0 0 0 rgba(255, 0, 0, 0); }
+  5% { text-shadow: -1px 0 0 rgba(255, 0, 0, 0.6), 1px 0 0 rgba(0, 255, 255, 0.6); }
+  10% { text-shadow: 0 0 0 rgba(255, 0, 0, 0); }
+  15% { text-shadow: 1px 0 0 rgba(255, 0, 0, 0.4), -1px 0 0 rgba(0, 255, 255, 0.4); }
+  20% { text-shadow: 0 0 0 rgba(255, 0, 0, 0); }
+  100% { text-shadow: 0 0 0 rgba(255, 0, 0, 0); }
+}
+
+/* Performance optimizations */
+.rift-anim,
+.cursor {
+  will-change: transform, filter, opacity;
+}
+
+/* Mobile-specific optimizations */
+@media (max-width: 768px) {
+  /* Improve button touch targets */
+  button, a[role="button"] {
+    min-height: 44px;
+    min-width: 44px;
+    padding: 8px 12px;
+  }
+  
+  /* Reduce animation intensity on mobile */
+  .rift-anim {
+    animation-duration: 20s, 40s;
+  }
+}
+
+/* Reduced motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .rift-anim,
+  .cursor {
+    animation: none;
+  }
+  
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  body {
+    background: #000000;
+  }
+  
+  .rift-anim {
+    filter: contrast(150%) brightness(120%);
+  }
+}
