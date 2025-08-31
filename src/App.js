@@ -64,7 +64,7 @@ export default function App() {
   const toggleMusic = () => {
     if (!musicRef.current) {
       // Initialize music
-      const audio = new Audio('/rift01.mp3');
+      const audio = new Audio('/riftrunner01.mp3');
       audio.loop = true;
       audio.volume = 0.3; // Set to 30% volume
       musicRef.current = audio;
@@ -108,7 +108,7 @@ export default function App() {
 
       // Auto-start music
       try {
-        const audio = new Audio('/rift01.mp3');
+        const audio = new Audio('/riftrunner01.mp3');
         audio.loop = true;
         audio.volume = 0.3;
         musicRef.current = audio;
@@ -241,7 +241,7 @@ export default function App() {
         {/* RIFT Runner GIF - within hero section */}
         <div className="flex justify-center mt-8">
           <img 
-            src="/riftrunner01.gif" 
+            src="/rift01.gif" 
             alt="RIFT Runner" 
             className="h-19 md:h-24 w-auto opacity-90 pixelated"
             style={{

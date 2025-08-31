@@ -83,11 +83,11 @@ The site uses a three-tone green phosphor palette:
 
 ### Audio Files
 Place your audio files in the `public` directory:
-- `rift01.mp3` - Background music (loops automatically)
+- `riftrunner01.mp3` - Background music (loops automatically)
 - Sound effects generated via Web Audio API
 
 ### Assets
-- `riftrunner01.gif` - Character animation
+- `rift01.gif` - Character animation
 - All images should be optimized for web
 
 ## 📂 Project Structure
@@ -96,8 +96,8 @@ Place your audio files in the `public` directory:
 rift-site/
 ├── public/
 │   ├── index.html
-│   ├── rift01.mp3
-│   ├── riftrunner01.gif
+│   ├── riftrunner01.mp3
+│   ├── rift01.gif
 │   └── manifest.json
 ├── src/
 │   ├── App.js          # Main application component
