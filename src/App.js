@@ -470,9 +470,9 @@ function Terminal({ onPhaseChange, onCharacterChange }) {
         border: `1px solid ${PHOS_DARK}`,
         boxShadow: `0 0 24px ${rgbaPhos(0.15)} inset, 0 0 24px ${rgbaPhos(0.2)}`,
       }}>
-        <div>{display[0]}{phase === 'type1' && <span className="cursor">█</span>}</div>
-        <div>{display[1]}{phase === 'type2' && <span className="cursor">█</span>}</div>
-        <div>{display[2]}{(phase === 'type3' || phase === 'hold' || phase === 'erase') && <span className="cursor">█</span>}</div>
+        <div style={{ minHeight: '1.2em' }}>{display[0] || '\u00A0'}{phase === 'type1' && <span className="cursor">█</span>}</div>
+        <div style={{ minHeight: '1.2em' }}>{display[1] || '\u00A0'}{phase === 'type2' && <span className="cursor">█</span>}</div>
+        <div style={{ minHeight: '1.2em' }}>{display[2] || '\u00A0'}{(phase === 'type3' || phase === 'hold' || phase === 'erase') && <span className="cursor">█</span>}</div>
       </div>
 
 
