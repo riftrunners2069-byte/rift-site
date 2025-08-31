@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useRef, useState } from "react";
+import React, { useCallback, useEffect, useMemo, useRef, useState } from "react";
 
 // CRT-styled landing page in phosphor green with RIFT headline
 // Fonts: Pixelify Sans (big), Jersey 10 (body)
@@ -384,12 +384,12 @@ function Terminal({ onPhaseChange, onCharacterChange }) {
   }, [phase, onPhaseChange]);
 
   // Trigger terrain pulse on every character change
-  const triggerTerrainPulse = () => {
+  const triggerTerrainPulse = useCallback(() => {
     if (onCharacterChange) {
       pulseRef.current += Math.PI / 3; // Increment for wave effect
       onCharacterChange(pulseRef.current);
     }
-  };
+  }, [onCharacterChange]);
 
   // Minimal runtime tests to ensure newline joining/splitting works
   useEffect(() => {
@@ -459,7 +459,7 @@ function Terminal({ onPhaseChange, onCharacterChange }) {
       }
     }
     return () => clearTimeout(t);
-  }, [phase, display, lines]);
+  }, [phase, display, lines, triggerTerrainPulse]);
 
   return (
     <div className="relative mt-6 w-full text-center select-none" style={{fontFamily:'var(--font-body)'}}>
